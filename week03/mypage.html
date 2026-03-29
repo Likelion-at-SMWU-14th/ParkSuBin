@@ -6,36 +6,40 @@
     <title>Document</title>
     <link rel="stylesheet" href="mypage.css" />
 </head>
-<div class="first">
-    <header class="top-header">
-        <img src="./images/icon.svg" class="icon"/>
-        <h2>마이페이지</h2>
-    </header>
+<body>
+    <div class="first">
+        <header class="top-header">
+            <img src="./images/icon.svg" class="icon"/>
+            <h2>마이페이지</h2>
+        </header>
 
-    <div class="profile-section">
-        <img src="./images/me 1.svg" class="profile-photo"/>
-        <p class="user-name">박수빈</p>
+        <div class="profile-section">
+            <img src="./images/me 1.svg" class="profile-photo" id="profileImg" style="cursor: pointer;"/>
+            <p class="user-name" id="profileName" style="cursor: pointer;">박수빈</p>
+        </div>
+
+        <div class="form-grid">
+            <section class="about_me">
+                <span>생년월일</span>
+                <input name="birth" type="text" placeholder="yyyy.mm.dd" />
+            </section>
+
+            <section class="about_me">
+                <span>mbti</span>
+                <input name="mbti" type="text" />
+            </section>
+
+            <section class="about_me">
+                <span>좋아하는 드라마</span>
+                <textarea name="drama"></textarea>
+            </section>
+
+            <section class="about_me">
+                <span>나라는 사람은......</span>
+                <textarea name="about_me"></textarea>
+            </section>
+        </div>
     </div>
-
-    <div class="form-grid">
-        <section class="about_me">
-            <span>생년월일</span>
-            <input name="birth" type="text" placeholder="yyyy.mm.dd" />
-        </section>
-
-        <section class="about_me">
-            <span>mbti</span>
-            <input name="mbti" type="text" />
-        </section>
-
-        <section class="about_me">
-            <span>좋아하는 드라마</span>
-            <textarea name="drama"></textarea>
-        </section>
-
-        <section class="about_me">
-            <span>나라는 사람은......</span>
-            <textarea name="about_me"></textarea>
-        </section>
-    </div>
-</div>
+    <script src="mypage.js"></script>
+</body>
+</html>
