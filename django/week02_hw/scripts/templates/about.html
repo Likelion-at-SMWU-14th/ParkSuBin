@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>독서 기록장 소개 및 입력</title>
+</head>
+<body>
+    <h1>나만의 독서 기록장 소개</h1>
+    <p>이곳은 감명 깊게 읽은 책의 제목과 기억하고 싶은 명대사를 기록하는 공간입니다.</p>
+    <a href="{% url 'quote_list' %}"> 전체 목록 보러가기</a>
+    <hr>
+
+    <h2>새로운 대사 기록하기</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        
+        <p>
+            <label for="title">책 제목:</label><br>
+            <input type="text" id="title" name="title" placeholder="책 제목을 입력하세요" required>
+        </p>
+        
+        <p>
+            <label for="dialogue">기록할 대사:</label><br>
+            <textarea id="dialogue" name="dialogue" rows="5" cols="40" placeholder="명대사를 입력하세요" required></textarea>
+        </p>
+        
+        <button type="submit">기록하기</button>
+    </form>
+</body>
+</html>
