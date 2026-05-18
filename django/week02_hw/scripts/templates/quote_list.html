@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>나만의 독서 기록장 - 목록</title>
+</head>
+<body>
+    <h1>저장된 책 명대사 목록</h1>
+    <a href="{% url 'about' %}"> 새 대사 등록하러 가기</a>
+    <hr>
+
+    <ul>
+        {% for quote in object_list %}
+            <li>
+                <strong>책 제목:</strong> {{ quote.title }} <br>
+                <strong>명대사:</strong> <em>"{{ quote.dialogue }}"</em>
+            </li>
+            <br>
+        {% empty %}
+            <li>아직 등록된 명대사가 없습니다. 첫 대사를 등록해보세요!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
