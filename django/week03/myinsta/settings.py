@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'posts',
     'blog',
     'users',
+    'accounts',
 ]
 
 AUTH_USER_MODEL = 'users.User'

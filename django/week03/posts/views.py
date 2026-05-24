@@ -93,10 +93,8 @@ class class_view2(ListView):
     model = Post
     template_name = 'cbv_view.html'
 def home_view(request):
-    context = {
-        "name": "lion"
-    }
-    return render(request,"home.html",context)
+    return render(request, "home.html")
+
 def post_update_view(request, id):
     post = Post.objects.get(id=id)    
     if request.method == "GET":
