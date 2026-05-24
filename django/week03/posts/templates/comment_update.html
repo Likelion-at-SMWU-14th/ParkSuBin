@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>댓글 수정</title>
+</head>
+<body>
+    <h1>댓글 수정 페이지</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <!-- 모델폼이 자동으로 content 텍스트 입력창을 만들어 줍니다 -->
+        <div>{{ form.as_p }}</div> 
+        
+        <button type="submit">수정 완료</button>
+    </form>
+</body>
+</html>

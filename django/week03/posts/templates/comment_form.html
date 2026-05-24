@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>새 댓글 작성</title>
+</head>
+<body>
+    <h1>새 댓글 작성하기</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>{{ form.as_p }}</div>
+        <button type="submit">댓글 등록</button>
+    </form>
+</body>
+</html>
