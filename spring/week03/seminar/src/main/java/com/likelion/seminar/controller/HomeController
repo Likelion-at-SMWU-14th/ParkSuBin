@@ -1,0 +1,16 @@
+package com.likelion.seminar.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class HomeController {
+
+    @GetMapping("/home/{color}")
+    public String home(
+        @PathVariable String color, Model page){
+        page.addAttribute(attributeName:"username", attributeValue: "Likelion");
+        page.addAttribute(attributeName:"color",color);
+        return "home";
+    }
+}
