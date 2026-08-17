@@ -14,16 +14,23 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "board")
 public class Board {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     @OneToMany(
             fetch = FetchType.LAZY,
-            mappedBy = "board"
+            mappedBy = "board",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
     private List<Post> posts = new ArrayList<>();
-    private Board(String name){
+
+    // public으로 변경
+    public Board(String name) {
         this.name = name;
     }
 }
