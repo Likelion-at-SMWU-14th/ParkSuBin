@@ -27,4 +27,15 @@ public class Product extends BaseEntity{
         this.name = name;
         this.price = price;
     }
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+    @ManyToOne
+    @JoinColumn(name = "provider_id")
+    private Provider provider;
+
+
+
+
 }
