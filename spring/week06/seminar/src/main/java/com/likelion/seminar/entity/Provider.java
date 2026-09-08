@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.w3c.dom.html.HTMLSelectElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,14 @@ public class Provider extends BaseEntity{
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "provider")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.PERSIST)
     @ToString.Exclude
     private List<Product> products = new ArrayList<>();
+
+    public void addProduct(Product product){
+        products.add(product);
+        product.setProvider(this);
+    }
 }
+
+
