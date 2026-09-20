@@ -12,14 +12,34 @@ import java.util.List;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<List<String>> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        List<String> messages = e.getBindingResult().getFieldErrors().stream().map(error ->error.getField() + ": "+error.getDefaultMessage()).toList();
+    public ResponseEntity<List<String>> handleMethodArgumentNotValidException(
+            MethodArgumentNotValidException e
+    ) {
+        List<String> messages = e.getBindingResult()
+                .getFieldErrors()
+                .stream()
+                .map(error ->
+                        error.getField() + ": " + error.getDefaultMessage()
+                )
+                .toList();
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messages);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(messages);
     }
 
     @ExceptionHandler(DuplicateEmailException.class)
-    public ResponseEntity<String> handleDuplicateEmailException(DuplicateEmailException e) {
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+    public ResponseEntity<String> handleDuplicateEmailException(
+            DuplicateEmailException e
+    ) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(e.getMessage());
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<String> handleUserNotFoundException(
+            UserNotFoundException e
+    ) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(e.getMessage());
     }
 }
